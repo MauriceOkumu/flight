@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
     
-          Fight Tracker
+          Flight Tracker
        
       </header>
     </div>
