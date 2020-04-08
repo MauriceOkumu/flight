@@ -70,3 +70,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 fix homebrew permissions
 
  ### ` sudo chown -R $(whoami) $(brew --prefix)/*`
+
+ Build the container
+ ### `docker build --pull --no-cache -t flightapp:vol1 .
+
+ Run the container
+ ### `docker run -it -v /flightapp --name flight-tracker -p 3000:3000 --rm flightapp:vol1
