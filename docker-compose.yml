@@ -3,6 +3,17 @@ services:
     app:
         container_name: flight-app
         restart: always
-        build:  .
+        build:
+            context: .
         ports: 
             - '3000:3000'
+        command: yarn start
+
+    test:
+        build:  
+            context: .
+        environment: 
+            - CI=true
+        command: yarn test
+        volumes: 
+            - './flightapp'
