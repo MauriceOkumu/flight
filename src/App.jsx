@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
     
           Flight Tracker
-          Awesome suluS
+          Awesome Sulu
        
       </header>
     </div>

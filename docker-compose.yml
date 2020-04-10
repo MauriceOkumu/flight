@@ -8,12 +8,15 @@ services:
         ports: 
             - '3000:3000'
         command: yarn start
+        environment: 
+            DEVELOPEMENT: 'true'
+        volumes: 
+            - './flightapp'
 
     test:
         build:  
-            context: .
+            context: ./docker
         environment: 
             - CI=true
         command: yarn test
-        volumes: 
-            - './flightapp'
+       
