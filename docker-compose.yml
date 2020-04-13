@@ -15,7 +15,7 @@ services:
 
     test:
         build:  
-            context: ./docker
+            context: .
         environment: 
             - CI=true
         command: yarn test
