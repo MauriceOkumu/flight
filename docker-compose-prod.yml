@@ -5,7 +5,7 @@ services:
         build:
             context: .
             dockerfile: 
-             .Dockerfile-prod
+             Dockerfile-prod
         environment:
             PRODUCTION: 'true'
         ports: 
