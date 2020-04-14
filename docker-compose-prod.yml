@@ -8,5 +8,6 @@ services:
              prod.Dockerfile
         environment:
             PRODUCTION: 'true'
+        restart: always
         ports: 
             - '3001:80'
