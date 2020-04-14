@@ -27,4 +27,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### [Docker setup](docker.md)
 
+### [DB operations](db.md)
+
 ### [Home](README.md)
