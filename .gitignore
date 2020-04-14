@@ -18,6 +18,7 @@
 .env.test.local
 .env.production.local
  flight.iml
+ .env
 
  .idea
 npm-debug.log*
