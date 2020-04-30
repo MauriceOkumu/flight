@@ -8,11 +8,30 @@ services:
         ports: 
             - '3000:3000'
         command: yarn start
+        links: 
+            - server
+        depends_on: 
+            - server   
+      
         environment: 
             DEVELOPEMENT: 'true'
         volumes: 
             - 'app_app:/flightapp'
 
+    server:
+        container_name: server
+        build: 
+            context: .
+        command: yarn server
+        environment: 
+            DEVELOPEMENT: 'true'
+        ports: 
+            - '4000:4000'
+        links: 
+            - db
+        depends_on: 
+            - db   
+        
     test:
         build:  
             context: .
@@ -25,11 +44,13 @@ services:
         env_file: 
             - .db.env
         container_name: flight-database
+       
         ports:
-            - '54320:5432'
+            - '5432'
         volumes: 
             - my_flightdata:/var/lib/postgresql/data
+        
 volumes:
     my_flightdata:
     app_app:
-        
+
