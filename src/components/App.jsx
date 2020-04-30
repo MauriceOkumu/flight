@@ -8,24 +8,27 @@ function App() {
   useEffect(() => {
     getFlights()
   }, [])
+
   function getFlights () {
-    // axios.get('/')
     axios.get('http://localhost:4000/')
     .then(res => {
       console.log('Res => ', res.data)
       setFlights(JSON.stringify(res.data))
       
+    }).catch(err => {
+      console.log(err)
     })
-  
+   
   }
   return (
     <div className="App">
       <header >
     
-          Flight Tracker
+          Flight Tracker Liitedrr
        
       </header>
       <div>
+        <p>All The flights</p>
         { flights }
       </div>
     </div>
