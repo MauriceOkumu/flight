@@ -1,13 +1,10 @@
 import Pool from 'pg'
+let { user, password, database, port, host } = process.env
 
 const DB = () => {
-    return  new Pool.Pool({
-        user: 'maury',
-        password: 'root',
-        database: 'flight',
-        port: '5432',
-        host: 'db'
- })
+     return  new Pool.Pool({
+       user, password, database, port, host
+   })
  }
 
 export default DB

@@ -19,7 +19,10 @@ server.use(bodyParser.json())
 
 server.use('/', router)
 router.get('/', async (req, res) => {
-  DB().query (createTables())
+  DB().query (createTables()).then(res => {
+    console.log(res)
+    DB().end()
+  })
 
     await DB()
     .connect(err => {
@@ -29,6 +32,7 @@ router.get('/', async (req, res) => {
         console.log('connected to the database flighter')
         res.send('[ no data yet ]')
       }
+    
     })
     //  console.log('Response =>', res.rows[0])
     // res.send('[ no data yet ]')
