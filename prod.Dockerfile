@@ -7,6 +7,8 @@ ENV PATH /flight-app/node_modules/.bin:$PATH
 
 RUN yarn
 
+RUN CI=true yarn test
+
 RUN yarn build
 
 FROM nginx:alpine

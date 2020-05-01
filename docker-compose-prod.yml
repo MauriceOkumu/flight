@@ -11,4 +11,29 @@ services:
         restart: always
         ports: 
             - '3001:80'
-    
+        depends_on: 
+            - server
+            
+    server:
+        container_name: server
+        build: 
+            context: .
+        command: yarn server
+        environment: 
+           PRODUCTION: 'true'
+        ports: 
+            - '4000:4000'
+        links: 
+            - db
+        depends_on: 
+            - db   
+
+    db:
+        image: 'postgres'
+        env_file: 
+            - .db.env
+        container_name: flight-database
+        
+        ports:
+            - '5432'
+

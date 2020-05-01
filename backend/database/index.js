@@ -1,10 +1,9 @@
 import Pool from 'pg'
-let { user, password, database, port, host } = process.env
+import params from '../../varies.js'
+// let { user, password, database, port, host } = process.env
 
-const DB = () => {
-     return  new Pool.Pool({
-       user, password, database, port, host
-   })
- }
+const DB = () => new Pool.Pool({ ...params })
+    
+ 
 
 export default DB
