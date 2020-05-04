@@ -10,9 +10,9 @@ function App() {
   }, [])
 
   function getFlights () {
-    axios.get('http://localhost:4000/')
-    .then(res => {
-      console.log('Res => ', res.data)
+    axios.get('/api')
+    .then((res ) => {
+      console.log('port => ', process.env.PORT)
       setFlights(JSON.stringify(res.data))
       
     }).catch(err => {
