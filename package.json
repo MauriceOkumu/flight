@@ -27,7 +27,7 @@
   "type": "module",
   "scripts": {
     "start": "node --experimental-modules server & react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build & node --experimental-modules server",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "node --experimental-modules server "
