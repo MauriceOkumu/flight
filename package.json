@@ -21,13 +21,18 @@
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0"
   },
+  "engines": {
+    "node": "12.x"
+  },
   "type": "module",
   "scripts": {
-    "start": "react-scripts start && nodemon --experimental-modules server",
+    "start": "nodemon --experimental-modules server",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "nodemon --experimental-modules server "
+    "server": "nodemon --experimental-modules server ",
+    "heroku-postbuild": "yarn && yarn build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -46,5 +51,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
-  }
+  }, 
+  "proxy": "http://localhost:4000/"
 }

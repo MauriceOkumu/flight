@@ -7,14 +7,14 @@ import path from 'path'
 import helmet from 'helmet'
 import compression from 'compression'
 import rateLimit from 'express-rate-limit'
-import {check, validationResult} from 'express-validator'
+import validator from 'express-validator'
 
 
 import DB  from '../backend/database/index.js'
 import createTables from '../backend/controllers/createTables.js'
 
 
-const port  = process.env.PORT || 4000
+const port  =  4000
 const server = express()
 
 const isProduction = process.env.NODE_ENV === 'production'
@@ -52,7 +52,7 @@ if(isProduction) {
 }
 
 
-server.use('/', router)
+server.use('/api', router)
 
 router.get('/', async (req, res) => {
   DB().query (createTables()).then(res => {
@@ -77,27 +77,27 @@ router.get('/', async (req, res) => {
 })
 
 //Example of form validation
-server.post('/addflight', [
-  check('airport')
-      .not()
-      .isEmpty()
-      .isLength({ min: 5, max: 255 })
-      .trim(),
-    check('aircraft')
-      .not()
-      .isEmpty()
-      .isLength({ min: 5, max: 255 })
-      .trim(),
-],(req, res) => {
+// server.post('/addflight', [
+//   validator.check('airport')
+//       .not()
+//       .isEmpty()
+//       .isLength({ min: 5, max: 255 })
+//       .trim(),
+//       validator.check('aircraft')
+//       .not()
+//       .isEmpty()
+//       .isLength({ min: 5, max: 255 })
+//       .trim(),
+// ],(req, res) => {
 
-  const errors = validationResult(req)
-  if (!errors.isEmpty()) {
-    return res.status(422).json({ errors: errors.array() });
-  } else {
-    //DB stuff......
-  }
+//   const errors = validationResult(req)
+//   if (!errors.isEmpty()) {
+//     return res.status(422).json({ errors: errors.array() });
+//   } else {
+//     //DB stuff......
+//   }
 
-})
+// })
 
 server.listen(port, () => {
     console.log('Server is listening on port ', port)
