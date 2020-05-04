@@ -41,7 +41,7 @@ server.use(limiter)
 const __dirname = path.resolve('')
 
 server.use(express.static(path.join(__dirname,'../build')))
-
+server.use(express.static(path.join(__dirname,'../public')))
 
 
 if(isProduction) {
@@ -52,7 +52,7 @@ if(isProduction) {
 }
 
 
-server.use('/api', router)
+server.use('/', router)
 
 router.get('/', async (req, res) => {
   DB().query (createTables()).then(res => {

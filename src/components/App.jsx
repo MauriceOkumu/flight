@@ -10,7 +10,7 @@ function App() {
   }, [])
 
   function getFlights () {
-    axios.get('/api/')
+    axios.get('http://localhost:4000/')
     .then(res => {
       console.log('Res => ', res.data)
       setFlights(JSON.stringify(res.data))
