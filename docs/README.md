@@ -35,3 +35,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 ### [DB operations](db.md)
 
 ### [Local setup](local.md)
+
+### [Deployment][deploy.md]
