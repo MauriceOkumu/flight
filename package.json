@@ -26,13 +26,12 @@
   },
   "type": "module",
   "scripts": {
-    "start": "node --experimental-modules server",
-    "dev": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "nodemon --experimental-modules server ",
-    "heroku-postbuild": "yarn && yarn build"
+    "server": "node --experimental-modules server ",
+    "heroku-postbuild": "yarn server"
   },
   "eslintConfig": {
     "extends": "react-app"
