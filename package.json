@@ -23,7 +23,7 @@
   },
   "type": "module",
   "scripts": {
-    "start": "react-scripts start && nodemon --experimental-modules serverr",
+    "start": "react-scripts start && nodemon --experimental-modules server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
