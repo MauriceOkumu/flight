@@ -27,6 +27,7 @@
 
  The `--no-deps flag` prevents Compose from also recreating any services which web depends on.
 
+`docker inspect flight_web --format={{.Id}}` to get the image id
  
 
 ### To stop the production container 
@@ -43,3 +44,5 @@
 ### [DB operations](db.md)
 
 ### [Home](README.md)
+
+### [Deployment][deploy.md]
