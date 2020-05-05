@@ -32,7 +32,7 @@ const limiter = rateLimit({
 
 const router = express.Router()
 server.use(helmet())
-server.use(cors())
+server.use(cors(origin))
 server.use(compression())
 server.use(bodyParser.urlencoded({extended: false}))
 server.use(bodyParser.json())
@@ -43,12 +43,12 @@ const __dirname = path.resolve('')
 server.use(express.static(path.join(__dirname,'/build')))
 
 
-if(isProduction) {
+// if(isProduction) {
     
-    server.get('*', (req, res) => {
-        res.sendfile(path.join(__dirname ,'build', 'index.html'))
-    })
-}
+//     server.get('*', (req, res) => {
+//         res.sendfile(path.join(__dirname ,'build', 'index.html'))
+//     })
+// }
 
 
 server.use('/api', router)
